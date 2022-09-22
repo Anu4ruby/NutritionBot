@@ -9,7 +9,7 @@ class Api:
         querystring = {"country": country_name}
         headers = {
             'x-rapidapi-host': "covid-193.p.rapidapi.com",
-            'x-rapidapi-key': "482a8f8516msh16204eb9d1f4f68p1a9146jsnf33914c7300e"
+            'x-rapidapi-key': "4abd423fdemsh4381311a7823b4dp116d02jsnd3cb2506b5a7"
         }
         response = requests.request("GET", url, headers=headers, params=querystring)
         # print(response.text)

@@ -9,6 +9,7 @@ from saveConversation import Conversations
 from DataRequests import MakeApiRequests
 from sendEmail import EMailClient
 from pymongo import MongoClient
+import certifi
 
 app = Flask(__name__)  # initialising the flask app with the name 'app'
 
@@ -226,7 +227,7 @@ def processRequest(req):
 
 
 def configureDataBase():
-    client = MongoClient("mongodb+srv://username:passwrod@cluster0-replace with you URL.mongodb.net/test?retryWrites=true&w=majority")
+    client = MongoClient("mongodb+srv://anu:1234@cluster0.cdxqu38.mongodb.net/?retryWrites=true&w=majority",tlsCAFile=certifi.where())
     return client.get_database('covid19DB')
 
 
@@ -248,7 +249,7 @@ def prepareEmail(contact_list):
 
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT'))
+    port = int(os.getenv('PORT',5000))
     print("Starting app on port %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
 '''if __name__ == "__main__":

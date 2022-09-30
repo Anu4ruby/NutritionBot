@@ -90,7 +90,7 @@ def processRequest(req):
         prepareEmail([cust_name, cust_contact, cust_email, val])
     else:
         return {
-            "fulfillmentText": "something went wrong,Lets start from the begning, Say Hi",
+            "fulfillmentText": "Lets try different approach. What's your question again?",
         }
 
 

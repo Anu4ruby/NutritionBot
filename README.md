@@ -1,5 +1,4 @@
-This application is a chatbot built using flask and dialogflow.
-Here is the oview of how this application is built
-Step 1:
-1. In your google dialogflow account create few chats with intents.
+I have taken reference from this repository "https://github.com/AndroidArena/BestCovid19_bot-DialogFlow" to build this chatbot
+so I have borrowed some parts of this code! Thank you.
+This application is a Nutrition chatbot built using flask, MongoDB and dialogflow.
 

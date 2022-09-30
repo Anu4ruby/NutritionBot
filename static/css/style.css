@@ -1,8 +1,11 @@
 body {
   background-color: #91ced4;
+  background-image: url("SKILL-LYNC.jpg");
 }
 body * {
+
   box-sizing: border-box;
+  margin: 25px;
 }
 
 .header {

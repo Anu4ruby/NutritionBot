@@ -13,7 +13,9 @@ import certifi
 
 app = Flask(__name__)  # initialising the flask app with the name 'app'
 
-
+@app.route('/', methods=['POST', 'GET'])
+def index():
+    return render_template('index.html')
 # geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
 @cross_origin()

@@ -70,8 +70,8 @@ def processRequest(req):
                 {
                     "text": {
                         "text": [
-                            "Do you want me to send the detailed report to your e-mail address? Type.. \n 1. Sure \n 2. Not now "
-                            # "We have sent the detailed report of {} Covid-19 to your given mail address.Do you have any other Query?".format(cust_country)
+                            "What else can I help you with?"
+
                         ]
 
                     }

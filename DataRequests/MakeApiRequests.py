@@ -19,7 +19,15 @@ class Api:
             parsed = js.get('parsed')[0]
             result = parsed['food']
             print("parsed food items", result)
-        except IndexError:
-            result = ''
+        except Exception as e:
+            print(e)
+            try:
+                hints = js.get('hints')[0]
+                print("hints", hints['food'])
+                result = hints['food']
+            except Exception as e:
+                print(e)
+                result = ''
+
         return result
 

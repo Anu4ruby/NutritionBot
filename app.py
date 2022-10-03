@@ -99,7 +99,7 @@ def processRequest(req):
 
 
 def configureDataBase():
-    client = MongoClient("mongodb+srv://anu:1234@cluster0.cdxqu38.mongodb.net/?retryWrites=true&w=majority",tlsCAFile=certifi.where())
+    client = MongoClient("mongodb+srv://anu:somepassword@cluster0.cdxqu38.mongodb.net/?retryWrites=true&w=majority",tlsCAFile=certifi.where())
     return client.get_database('NutritionDB')
 
 

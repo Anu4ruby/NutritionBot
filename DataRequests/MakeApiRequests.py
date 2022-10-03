@@ -13,15 +13,13 @@ class Api:
             'x-rapidapi-key': "4abd423fdemsh4381311a7823b4dp116d02jsnd3cb2506b5a7"
         }
         response = requests.request("GET", url, headers=headers, params=querystring)
-        #print(response.text)
         js = json.loads(response.text)
-        #print("********", js)
-        parsed = js.get('parsed')[0]
-        #print("*********parsed", parsed)
-        if parsed:
+        print("******** API output", js)
+        try:
+            parsed = js.get('parsed')[0]
             result = parsed['food']
-            print("food items", result)
-        else:
+            print("parsed food items", result)
+        except IndexError:
             result = ''
         return result
 

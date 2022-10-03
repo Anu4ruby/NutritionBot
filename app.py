@@ -44,15 +44,19 @@ def processRequest(req):
 
     if intent == 'calorie_information':
         food = parameters.get("food")
-
-
         fulfillmentText = makeAPIRequest(food)
-        webhookresponse = "***Nutrition Report*** \n\n" + " Name :" + str(fulfillmentText.get('name')) + \
-            "\n" + " fat_saturated_g : " + str(fulfillmentText.get('fat')) + "\n" \
-            " Protein in gms : " + str(fulfillmentText.get('protein')) + "\n" \
-            " carbohydrates in gms : " + str(fulfillmentText.get('carbon')) + "\n"\
-            + " calories : " + str(fulfillmentText.get('caloric')) + "\n" \
-            + "\n\n*******END********* \n "
+        if fulfillmentText:
+            nutrients = fulfillmentText.get('nutrients')
+            webhookresponse = "***Nutrition Report*** \n\n" + " Name :" + str(fulfillmentText.get('label')) + \
+                              "\n" + "Fat in gm : " + str(nutrients.get('FAT')) + "\n" \
+                              " Protein in gms : " + str(nutrients.get('PROCNT')) + "\n" \
+                              " Carbohydrates in gms : " + str(nutrients.get('CHOCDF')) + "\n" \
+                              + " Calories : " + str(nutrients.get('ENERC_KCAL')) + "\n" \
+                              + " Fibre : " + str(nutrients.get('FIBTG')) + "\n" \
+                              + "\n\n*******END********* \n "
+        else:
+            webhookresponse = "You have either entered incorrect food item or you have exceeded the maximum api calls for this app. Please upgrade your plan in Rapid API to keep using this feature"
+
         print(webhookresponse)
         log.saveConversations(sessionID, food, webhookresponse, intent, db)
         #log.saveCases("calorie", fulfillmentText, db)
